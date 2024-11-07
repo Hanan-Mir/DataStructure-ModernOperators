@@ -329,6 +329,113 @@ console.log(myName.size);
 for(let value of uniqueOffering){
 console.log(value);
 }
+//--------------------------------------MAPS PRACTICE--------------------------
+let resturantMap=new Map();
+resturantMap.set('Name','Davis el Salrado');
+resturantMap.set('Address','paris la sel ve');
+resturantMap.set('starter',['icecream','popcorn','ledicie','cornflakes']);
+console.log(resturantMap);
+resturantMap.set('open',15).set('close',23).set(true,'We are open :D').set(false,'we are close :(');
+resturantMap.set('mainMenu',['rista','abhgosh','paneer']);
+console.log(resturantMap);
+let currentTime=22;
+console.log(resturantMap.get(currentTime>resturantMap.get('open') && currentTime< resturantMap.get('close')));
+console.log(resturantMap.has('address'));
+//console.log(resturantMap.delete('Address'));
+resturantMap.set([2,4,5],"working days of week");
+console.log(resturantMap.size);
+console.log(resturantMap);
+//-----------------------------------------quiz game--------
+let question= new Map([
+  ['Question1',`What is the summer capital of jammmu kashmir?`],
+  [1,'Delhi'],[2,'Mumbai'],[3,'Srinagar'],[4,'None of the above'],
+  ['correct',3],[true,'Right Answer'],[false,'Wrong answer']
+])
+console.log(question);
+console.log(question.get('Question1'));
+for(let [key,value] of question){
+  if(typeof key==='number'){
+    console.log(`Option ${key}:${value}`)
+  }
+}
+let answer=Number(prompt(`Enter the right option`));
+console.log(question.get(answer===question.get('correct3')?true:false));
+//-------------------------------------CODING CHALLENGE #3--------------------
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+  ]);
+//challenge 1
+  // let eventsSet=new Set(gameEvents);
+  // eventsSet= new Set(eventsSet);
+  // console.log(eventsSet);
+  // let eventsValue=[];
+  // for(let [key,value] of eventsSet){
+    // eventsValue.push(value);
+  // }
+// let events= new Set(eventsValue);
+// events=[...events];
+let events=[...new Set(gameEvents.values())];
+console.log(events);
+//challenge 2
+gameEvents.delete(64);
+console.log(gameEvents);
+//challenge 3
+for(let [key,value] of gameEvents){
+  if(key<90){
+    console.log(`An ${value} happened on an average of ${Math.trunc(90/key)}`)
+  }
+}
+//challenge 4 
+for(let [key,value] of gameEvents){
+ console.log( key<=45?`[First Half] ${key}:${value}`:`[Second Half] ${key}:${value}`);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
