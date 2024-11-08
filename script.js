@@ -1,8 +1,6 @@
 'use strict';
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 let restaurant = {
@@ -399,6 +397,58 @@ for(let [key,value] of gameEvents){
 for(let [key,value] of gameEvents){
  console.log( key<=45?`[First Half] ${key}:${value}`:`[Second Half] ${key}:${value}`);
 }
+//---------------------------CODING CHALLENGE #4-----------------------------------------
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+let enterButton=document.querySelector('button');
+enterButton.addEventListener('click',function(){
+  let userData=document.querySelector('textarea').value;
+  let userDataArray=userData.split('\n');
+  for(let value of userDataArray){
+  let output=value.slice().trim();
+  let index=output.indexOf('_');
+  output=output.slice(0,index)+output[index+1].toUpperCase()+output.slice(index+2);
+console.log(output);
+  }
+  // if(userData.includes('_')){
+  //   userData=userData.trim().toLowerCase();
+  //   let index=userData.indexOf('_');
+  //   console.log(index);
+  //   userData=userData.slice(0,index)+userData[index+1].toUpperCase()+userData.slice(index+2);
+  //   console.log(userData);
+  // }
+})
+let convertCase=function(input){
+  return input.slice(0,3).toUpperCase();
+}
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+ const flightsArray=flights.split('+');
+ for(let value of flightsArray){
+  let [status,from,to,time]=value.split(';');
+  status=status.replaceAll('_'," ");
+ const output=`${status} from ${convertCase(from)} to ${convertCase(to)} (${time.replace(':','h')})`.padStart(47,'*');
+ console.log(output);
+ }
+ //practicing strings
+ let hideCardDigits=function(){
+  let getCardNumber=prompt('Enter the 16 digit card Number');
+getCardNumber=getCardNumber.slice();
+console.log(getCardNumber);
+if(getCardNumber.length<16){
+  console.log('Enter 16 digit cardNumber');
+}
+const output=getCardNumber.slice(-4);
+console.log(output.padStart(16,'*'));
+ }
+ hideCardDigits();
+
+
+
+
+
+
+
 
 
 
